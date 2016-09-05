@@ -21,3 +21,9 @@
 
 1. Adding Views to Product leveraging Razor
 
+
+----------
+**Important Note:** While your work in this project is "fair game" when completing future assignments, do not "borrow" or copy/paste the code that already exists in this repository. Take time to understand what's going on and implement it yourself instead.
+
+----------
+
