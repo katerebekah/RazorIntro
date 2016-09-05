@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IntroToRazor.DAL
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private IntroToRazorContext database { get; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IntroToRazor.DAL
 {
-    public class VendorRepository
+    public class VendorRepository : IVendorRepository
     {
         private IntroToRazorContext database { get; }
 

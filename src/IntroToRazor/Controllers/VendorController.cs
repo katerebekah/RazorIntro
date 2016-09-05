@@ -11,9 +11,9 @@ namespace IntroToRazor.Controllers
 {
     public class VendorController : Controller
     {
-        private VendorRepository repo { get; }
+        private IVendorRepository repo { get; }
 
-        public VendorController(VendorRepository repository)
+        public VendorController(IVendorRepository repository)
         {
             repo = repository;
         }
@@ -26,6 +26,16 @@ namespace IntroToRazor.Controllers
         }
 
         public IActionResult Add()
+        {
+            return View();
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
+        }
+
+        public IActionResult Update()
         {
             return View();
         }

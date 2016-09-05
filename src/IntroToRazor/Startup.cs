@@ -33,6 +33,9 @@ namespace IntroToRazor
             services.AddMvc();
             var connection = @"Server=(localdb)\mssqllocaldb;Database=IntroToRazor.DAL;Trusted_Connection=True;";
             services.AddDbContext<IntroToRazorContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<IVendorRepository, VendorRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
