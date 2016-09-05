@@ -1,5 +1,7 @@
 ﻿using System;
 using Xunit;
+using IntroToRazor.DAL;
+using Moq;
 
 namespace Tests
 {
