@@ -11,11 +11,11 @@ using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace Tests
 {
-    public class ProductRepositoryTests
+    public class VendorRepositoryTests
     {
         private readonly Mock<IntroToRazorContext> context = new Mock<IntroToRazorContext>();
-        Mock<DbSet<Product>> Products = new Mock<DbSet<Product>>();
-        private IQueryable<Product> products;
+        Mock<DbSet<Vendor>> Vendors = new Mock<DbSet<Vendor>>();
+        private IQueryable<Vendor> vendors;
         Product product1, product2, product3;
         Vendor vendor1, vendor2;
         
@@ -24,49 +24,46 @@ namespace Tests
         {
             vendor1 = new Vendor { VendorId = 11, Address = "Address", FirstName = "Bob", LastName = "Smith", PhoneNumber = "123-231-1232" };
             vendor2 = new Vendor { VendorId = 13, Address = "Address", FirstName = "Beth", LastName = "Thomas", PhoneNumber = "231-211-3332" };
-
-            product1 = new Product { ProductId = 7, Description = "Description", Name = "Name", Vendor = vendor1 };
-            product2 = new Product { ProductId = 10, Description = "Description", Name = "Name", Vendor = vendor1 };
-            product3 = new Product { ProductId = 99, Description = "Description", Name = "Name", Vendor = vendor2 };
-            products = new List<Product> {product1, product2, product3}.AsQueryable();
-
-            Products.As<IQueryable<Product>>().Setup(x => x.Provider).Returns(products.Provider);
-            Products.As<IQueryable<Product>>().Setup(x => x.Expression).Returns(products.Expression);
-            Products.As<IQueryable<Product>>().Setup(x => x.ElementType).Returns(products.ElementType);
-            Products.As<IQueryable<Product>>().Setup(x => x.GetEnumerator()).Returns(products.GetEnumerator());
             
-            context.Setup(x => x.Products).Returns(this.Products.Object);
+            vendors = new List<Vendor> {vendor1, vendor2}.AsQueryable();
+
+            Vendors.As<IQueryable<Vendor>>().Setup(x => x.Provider).Returns(vendors.Provider);
+            Vendors.As<IQueryable<Vendor>>().Setup(x => x.Expression).Returns(vendors.Expression);
+            Vendors.As<IQueryable<Vendor>>().Setup(x => x.ElementType).Returns(vendors.ElementType);
+            Vendors.As<IQueryable<Vendor>>().Setup(x => x.GetEnumerator()).Returns(vendors.GetEnumerator());
+            
+            context.Setup(x => x.Vendors).Returns(this.Vendors.Object);
         }
 
         [Fact]
-        public void GetProductById_ReturnsProduct_GivenAValidId() 
+        public void GetVendorById_ReturnsVendor_GivenAValidId() 
         {
             SetUp();
-            var repo = new ProductRepository(context.Object);
+            var repo = new VendorRepository(context.Object);
             
             //Arrange
-            int id = 7; //a Product with this id is in mock dbset
+            int id = 11; //a Vendor with this id is in mock dbset
 
             //Act
-            var actualProduct = repo.GetProductById(id);
+            var actualVendor = repo.GetVendorById(id);
 
             //Assert
-            Assert.Equal(product1, actualProduct);
+            Assert.Equal(vendor1, actualVendor);
         }
 
         [Fact]
-        public void GetProductById_ReturnsNull_GivenAnInvalidId()
+        public void GetVendorById_ReturnsNull_GivenAnInvalidId()
         {
             //Arrange
             SetUp();
-            var repo = new ProductRepository(context.Object);
-            int id = 2; //a Product with this id is NOT in mock dbset
+            var repo = new VendorRepository(context.Object);
+            int id = 2; //a Vendor with this id is NOT in mock dbset
 
             //Act
-            var actualProduct = repo.GetProductById(id);
+            var actualVendor = repo.GetVendorById(id);
 
             //Assert
-            Assert.Null(actualProduct);
+            Assert.Null(actualVendor);
         }
 
         [Fact]

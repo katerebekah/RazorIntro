@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA4CCD87-F4A6-4B72-964E-13129E1ED915}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IntroToRazor", "src\IntroToRazor\IntroToRazor.xproj", "{4E7B27C6-A939-4EDB-B71F-95DF18366BC7}"

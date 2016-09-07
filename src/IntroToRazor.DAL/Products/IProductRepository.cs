@@ -16,5 +16,7 @@ namespace IntroToRazor.DAL
         void EditProduct(Product product);
 
         void DeleteProduct(int productId);
+
+        void SaveChanges();
     }
 }

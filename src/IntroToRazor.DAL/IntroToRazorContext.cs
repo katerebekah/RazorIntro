@@ -8,10 +8,11 @@ namespace IntroToRazor.DAL
 {
     public class IntroToRazorContext : DbContext
     {
+        public IntroToRazorContext() { }
         public IntroToRazorContext(DbContextOptions<IntroToRazorContext> options)
             : base(options)
         { }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Vendor> Vendors { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Vendor> Vendors { get; set; }
     }
 }

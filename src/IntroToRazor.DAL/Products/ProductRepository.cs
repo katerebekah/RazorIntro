@@ -28,23 +28,20 @@ namespace IntroToRazor.DAL
         public void AddProduct (Product product)
         {
             database.Products.Add(product);
-            SaveChanges();
         }
 
         public void EditProduct (Product product)
         {
             database.Entry(product).State = EntityState.Modified;
-            SaveChanges();
         }
 
         public void DeleteProduct (int productId)
         {
             var currentProduct = database.Products.FirstOrDefault(product => product.ProductId == productId);
             database.Products.Remove(currentProduct);
-            SaveChanges();
         }
 
-        private void SaveChanges()
+        public void SaveChanges()
         {
             database.SaveChanges();
         }

@@ -10,7 +10,8 @@
     "IntroToRazor": {
       "target": "project"
     },
-    "Moq": "4.6.25-alpha"
+    "Moq": "4.6.25-alpha",
+    "System.Diagnostics.TraceSource": "4.0.0"
   },
   "testRunner": "xunit",
   "frameworks": {
