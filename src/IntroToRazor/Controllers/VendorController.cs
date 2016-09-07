@@ -27,21 +27,20 @@ namespace IntroToRazor.Controllers
 
         public IActionResult Add()
         {
-            return View();
+            return View("Vendor");
         }
 
         public IActionResult Delete()
         {
-            return View();
+            return View("Vendor");
         }
 
         public IActionResult Update()
         {
-            return View();
+            return View("Vendor");
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Add(Vendor vendor)
         {
             if (ModelState.IsValid)

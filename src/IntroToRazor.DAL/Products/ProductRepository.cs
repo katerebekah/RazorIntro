@@ -25,6 +25,11 @@ namespace IntroToRazor.DAL
             return database.Products.Where(product => product.Vendor.VendorId == vendorId);
         }
 
+        public IEnumerable<Product> GetAllProducts()
+        {
+            return database.Products;
+        }
+
         public void AddProduct (Product product)
         {
             database.Products.Add(product);

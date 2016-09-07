@@ -11,6 +11,8 @@ namespace IntroToRazor.DAL
 
         IEnumerable<Product> GetProductsByVendor(int vendorId);
 
+        IEnumerable<Product> GetAllProducts();
+
         void AddProduct(Product product);
 
         void EditProduct(Product product);
